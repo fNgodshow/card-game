@@ -1,0 +1,22 @@
+.game-field {
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.game-cards {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+}
+
+.cardNumber {
+    font-size: 100px;
+    color: black;
+}
