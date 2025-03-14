@@ -1,22 +1,159 @@
-.game-field {
-    display: grid;
-    grid-template-columns: 200px 200px 200px 200px;
-    gap: 2rem;
-    margin-top: 2rem;
+* {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
-.game-cards {
+:root {
+    --primary-bg: linear-gradient(90deg, #6482f0 0%, #7593f2 100%);
+}
+
+html {
+    background: url(../image/site-bg.jpg);
+    overflow: hidden;
+}
+
+.d-none {
+    display: none !important;
+}
+
+h2 {
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 50px;
+    background: linear-gradient(104deg, #6584f1 0%, #ca40dd 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.btn {
+    min-width: 150px;
+    background: var(--primary-bg);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 17px 24px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, rgba(100, 130, 240, 0.9) 50%, rgb(117, 147, 242, 0.9) 100%);
+}
+
+.btn.second {
+    background: inherit;
+    border: 1px solid;
+    color: #6482f0;
+}
+
+.btn.second:hover {
+    background: rgb(33, 41, 67, 90%);
+    color: #fff;
+}
+
+.btn-container {
     display: flex;
-    text-align: center;
+    gap: 20px;
+}
+
+.container {
+    max-width: 1400px;
+    padding: 20px 20px;
+    margin: 0 auto;
+}
+
+#app-options,
+#restart-game,
+#card-app,
+#end-game {
+    display: flex;
+    height: 100vh;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    border: 1px solid black;
-    width: 200px;
-    height: 200px;
+}
+
+.container-options,
+.end_game-container,
+.container-restart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.game-field {
+    display: grid;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.game-field.easy {
+    grid-template-columns: 105px 105px 105px 105px 105px;
+}
+
+.game-field.medium {
+    grid-template-columns: 105px 105px 105px 105px 105px 105px 105px 105px;
+}
+
+.game-field.hard {
+    grid-template-columns: 105px 105px 105px 105px 105px 105px 105px 105px 105px 105px 105px 105px;
 }
 
 .cardNumber {
     font-size: 100px;
-    color: black;
+    color: #3d3c3c;
+}
+
+.game-card {
+    display: flex;
+    cursor: pointer;
+    min-height: 150px;
+    position: relative;
+    box-shadow: 0 6px 12px 0 #eef1f8;
+    background-color: transparent;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    min-height: 150px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.game-card.openCard .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    min-height: 150px;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    border-radius: 10px;
+}
+
+.flip-card-back {
+    display: flex;
+    text-align: center;
+    background: #fff;
+    min-height: 150px;
+    border-radius: 10px;
+    transform: rotateY(180deg);
+    align-items: center;
+    justify-content: center;
 }
